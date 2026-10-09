@@ -160,3 +160,90 @@ li::marker { color: var(--destaque); }
   }
   .topo nav a { margin-left: 0.75rem; }
 }
+
+/* ===== JAVASCRIPT — AULA 2: modo escuro =====
+   Bloco colado na aula 2 (07/10).
+
+   O JavaScript liga e desliga a classe "modo-escuro" na tag
+   <html>. Aqui a gente só troca os valores das variáveis do
+   :root — o resto do CSS não muda. */
+
+html.modo-escuro {
+  --fundo: #0f0d1f;
+  --superficie: #1c1936;
+  --texto: #ede9fe;
+  --texto-suave: #b8b3d6;
+  --primaria: #c4b5fd;
+  --primaria-escura: #a78bfa;
+}
+
+/* Estas partes usam cores fixas no CSS original,
+   então precisam de ajuste no modo escuro */
+html.modo-escuro .botao { color: var(--fundo); }
+html.modo-escuro .botao-claro { color: var(--primaria); }
+html.modo-escuro .botao-claro:hover { color: var(--fundo); }
+html.modo-escuro .rodape { background: var(--superficie); color: var(--texto); }
+
+body { transition: background-color 0.3s, color 0.3s; }
+
+/* O botão que o JavaScript vai ouvir */
+.botao-tema {
+  margin-left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.1rem;
+  background: none;
+  border: 2px solid var(--primaria);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* ===== JAVASCRIPT — AULA 3: menu do celular =====
+   Bloco colado na aula 3 (08/10).
+
+   No celular, os links do menu somem e aparece o botão ☰.
+   O JavaScript liga e desliga a classe "aberto" no <nav>;
+   aqui a gente só diz como o menu fica quando está aberto. */
+
+/* O botão ☰ fica escondido no computador */
+.botao-menu {
+  display: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  background: none;
+  border: 2px solid var(--primaria);
+  border-radius: 10px;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+/* Deixa o menu aberto por cima do conteúdo da página */
+.topo { z-index: 10; }
+
+@media (max-width: 700px) {
+  .botao-menu { display: block; }
+
+  /* Menu fechado: escondido */
+  .topo nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 1.5rem 1rem;
+    background: var(--superficie);
+    box-shadow: var(--sombra);
+  }
+
+  /* Menu aberto: o JavaScript põe a classe "aberto" */
+  .topo nav.aberto { display: block; }
+
+  .topo nav a {
+    display: block;
+    margin: 0;
+    padding: 0.75rem 0;
+  }
+
+  .topo nav .botao-tema { margin: 0.5rem 0 0; }
+}
