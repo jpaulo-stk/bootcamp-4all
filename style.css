@@ -28,20 +28,42 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
 }
 
-h1 { font-size: clamp(2.2rem, 6vw, 3.5rem); }
-h2 { font-size: 1.8rem; margin-bottom: 1rem; }
-h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
-h4 { font-size: 0.95rem; margin-top: 0.75rem; }
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+}
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+h4 {
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
+}
 
-p { color: var(--texto-suave); margin-bottom: 1rem; }
+p {
+  color: var(--texto-suave);
+  margin-bottom: 1rem;
+}
 
-a { color: var(--primaria); font-weight: 600; }
+a {
+  color: var(--primaria);
+  font-weight: 600;
+}
 
-img { max-width: 100%; display: block; }
+img {
+  max-width: 100%;
+  display: block;
+}
 
 /* ===== AULA 2: layout com classes ===== */
 .container {
@@ -67,7 +89,9 @@ img { max-width: 100%; display: block; }
   font-weight: 500;
 }
 
-.topo nav a:hover { color: var(--primaria); }
+.topo nav a:hover {
+  color: var(--primaria);
+}
 
 .logo {
   text-decoration: none;
@@ -81,7 +105,9 @@ img { max-width: 100%; display: block; }
   gap: 3rem;
 }
 
-.hero-texto { flex: 1; }
+.hero-texto {
+  flex: 1;
+}
 
 .hero h2 {
   color: var(--primaria);
@@ -106,7 +132,9 @@ img { max-width: 100%; display: block; }
   margin-right: 0.5rem;
 }
 
-.botao:hover { background: var(--primaria-escura); }
+.botao:hover {
+  background: var(--primaria-escura);
+}
 
 .botao-claro {
   background: transparent;
@@ -138,11 +166,18 @@ img { max-width: 100%; display: block; }
   margin-bottom: 1rem;
 }
 
-ul, ol { padding-left: 1.25rem; }
+ul,
+ol {
+  padding-left: 1.25rem;
+}
 
-li { margin-bottom: 0.4rem; }
+li {
+  margin-bottom: 0.4rem;
+}
 
-li::marker { color: var(--destaque); }
+li::marker {
+  color: var(--destaque);
+}
 
 .rodape {
   text-align: center;
@@ -151,14 +186,74 @@ li::marker { color: var(--destaque); }
   color: #fff;
 }
 
-.rodape h6 { font-weight: 400; opacity: 0.7; }
+.rodape h6 {
+  font-weight: 400;
+  opacity: 0.7;
+}
 
 @media (max-width: 700px) {
   .hero {
     flex-direction: column-reverse;
     text-align: center;
   }
-  .topo nav a { margin-left: 0.75rem; }
+  .topo nav a {
+    margin-left: 0.75rem;
+  }
+}
+
+/* ===== PÁGINA DE CONTATO (contato.html) =====
+   Estilos do formulário. Ficam antes dos blocos de JavaScript
+   abaixo, que continuam "colados no fim" do arquivo. */
+
+.contato-pagina {
+  text-align: center;
+}
+
+.formulario {
+  background-color: var(--superficie);
+  padding: 2rem;
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  max-width: 560px;
+  margin: 2rem auto 0;
+  text-align: left;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+input,
+select,
+textarea {
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  border: 2px solid #7c78a8;
+  border-radius: 10px;
+  color: var(--texto);
+  background-color: var(--superficie);
+}
+
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--primaria);
+  outline-offset: 3px;
+}
+
+.formulario .botao {
+  width: 100%;
+  border: none;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 /* ===== JAVASCRIPT — AULA 2: modo escuro =====
@@ -179,12 +274,25 @@ html.modo-escuro {
 
 /* Estas partes usam cores fixas no CSS original,
    então precisam de ajuste no modo escuro */
-html.modo-escuro .botao { color: var(--fundo); }
-html.modo-escuro .botao-claro { color: var(--primaria); }
-html.modo-escuro .botao-claro:hover { color: var(--fundo); }
-html.modo-escuro .rodape { background: var(--superficie); color: var(--texto); }
+html.modo-escuro .botao {
+  color: var(--fundo);
+}
+html.modo-escuro .botao-claro {
+  color: var(--primaria);
+}
+html.modo-escuro .botao-claro:hover {
+  color: var(--fundo);
+}
+html.modo-escuro .rodape {
+  background: var(--superficie);
+  color: var(--texto);
+}
 
-body { transition: background-color 0.3s, color 0.3s; }
+body {
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
 
 /* O botão que o JavaScript vai ouvir */
 .botao-tema {
@@ -219,10 +327,14 @@ body { transition: background-color 0.3s, color 0.3s; }
 }
 
 /* Deixa o menu aberto por cima do conteúdo da página */
-.topo { z-index: 10; }
+.topo {
+  z-index: 10;
+}
 
 @media (max-width: 700px) {
-  .botao-menu { display: block; }
+  .botao-menu {
+    display: block;
+  }
 
   /* Menu fechado: escondido */
   .topo nav {
@@ -237,7 +349,9 @@ body { transition: background-color 0.3s, color 0.3s; }
   }
 
   /* Menu aberto: o JavaScript põe a classe "aberto" */
-  .topo nav.aberto { display: block; }
+  .topo nav.aberto {
+    display: block;
+  }
 
   .topo nav a {
     display: block;
@@ -245,5 +359,36 @@ body { transition: background-color 0.3s, color 0.3s; }
     padding: 0.75rem 0;
   }
 
-  .topo nav .botao-tema { margin: 0.5rem 0 0; }
+  .topo nav .botao-tema {
+    margin: 0.5rem 0 0;
+  }
 }
+
+/* ===== JAVASCRIPT — AULA 4: avisos do formulário =====
+   Bloco colado na aula 4 (15/10).
+
+   O JavaScript escreve a resposta no <p id="aviso"> e põe a
+   classe "erro" (vermelho) ou "certo" (verde). Aqui a gente
+   só diz como cada uma fica. */
+
+.aviso {
+  margin-top: 1rem;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.aviso.erro {
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.aviso.certo {
+  padding: 0.75rem 1rem;
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+/* No modo escuro, as mesmas cores, mais suaves */
+html.modo-escuro .aviso.erro { background: #3a1717; color: #fca5a5; }
+html.modo-escuro .aviso.certo { background: #14301f; color: #86efac; }
